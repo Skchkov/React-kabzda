@@ -9,12 +9,29 @@ export default {
 } as Meta;
 
 const callback = action("accordion mode changed");
+const onClickCallback = action("some item was clicked");
 
 export const CollapsedMode = () => (
-  <Accordion collapsed={true} titleValue={"Burger"} onChange={callback} />
+  <Accordion
+    collapsed={true}
+    titleValue={"Burger"}
+    onChange={callback}
+    items={[{ title: "Burger", value: "0" }]}
+    onClick={onClickCallback}
+  />
 );
 export const UncollapsedMode = () => (
-  <Accordion collapsed={false} titleValue={"Users"} onChange={callback} />
+  <Accordion
+    collapsed={false}
+    titleValue={"Users"}
+    onChange={callback}
+    items={[
+      { title: "Nikita", value: 1 },
+      { title: "Dimas", value: 2 },
+      { title: "Denis", value: 3 },
+    ]}
+    onClick={onClickCallback}
+  />
 );
 
 export const ModeChanging = () => {
@@ -25,6 +42,14 @@ export const ModeChanging = () => {
       titleValue={"Users"}
       onChange={() => {
         setCollapsed(!collapsed);
+      }}
+      items={[
+        { title: "Nikita", value: 1 },
+        { title: "Dimas", value: 2 },
+        { title: "Denis", value: 3 },
+      ]}
+      onClick={(id) => {
+        alert(`user with ID ${id} should be happy`);
       }}
     />
   );

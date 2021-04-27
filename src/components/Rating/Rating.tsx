@@ -1,11 +1,11 @@
 import React from "react";
 
-type RatinPropsType = {
+type RatingPropsType = {
   value: number;
   onClick: (value: number) => void;
 };
 
-const Rating = (props: RatinPropsType) => {
+const Rating = (props: RatingPropsType) => {
   console.log("Rating rendering");
 
   return (
